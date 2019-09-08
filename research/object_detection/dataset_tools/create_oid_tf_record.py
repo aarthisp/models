@@ -85,8 +85,8 @@ def main(_):
   all_images = tf.gfile.Glob(
       os.path.join(FLAGS.input_images_directory, '*.jpg'))
   all_image_ids = [os.path.splitext(os.path.basename(v))[0] for v in all_images]
-  tf.logging.log_every_n(tf.logging.INFO, 'Image Id %s', 1, all_image_ids[79])
   all_image_ids = pd.DataFrame({'ImageID': all_image_ids})
+  tf.logging.log_every_n(tf.logging.INFO, 'Image Id %s', 1, all_image_ids.loc[[79]])
   all_annotations = pd.concat(
       [all_box_annotations, all_image_ids, all_label_annotations])
 
