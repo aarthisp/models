@@ -50,16 +50,16 @@ def tf_example_from_annotations_data_frame(annotations_data_frame, label_map,
   feature_map = {
       standard_fields.TfExampleFields.object_bbox_ymin:
           dataset_util.float_list_feature(
-              filtered_data_frame_boxes.YMin.as_matrix()),
+              filtered_data_frame_boxes.YMin.as_matrix().astype(float)),
       standard_fields.TfExampleFields.object_bbox_xmin:
           dataset_util.float_list_feature(
-              filtered_data_frame_boxes.XMin.as_matrix()),
+              filtered_data_frame_boxes.XMin.as_matrix().astype(float)),
       standard_fields.TfExampleFields.object_bbox_ymax:
           dataset_util.float_list_feature(
-              filtered_data_frame_boxes.YMax.as_matrix()),
+              filtered_data_frame_boxes.YMax.as_matrix().astype(float)),
       standard_fields.TfExampleFields.object_bbox_xmax:
           dataset_util.float_list_feature(
-              filtered_data_frame_boxes.XMax.as_matrix()),
+              filtered_data_frame_boxes.XMax.as_matrix().astype(float)),
       standard_fields.TfExampleFields.object_class_text:
           dataset_util.bytes_list_feature(
               filtered_data_frame_boxes.LabelName.as_matrix().astype(bytes)),
