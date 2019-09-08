@@ -96,14 +96,13 @@ def main(_):
         tf_record_close_stack, FLAGS.output_tf_record_path_prefix,
         FLAGS.num_shards)
     all_annotations_grp = all_annotations.groupby('ImageID')
-    tf.logging.log_every_n(tf.logging.INFO, 'group %s', 1, all_annotations_grp.get_group('0069e8be6d4f66f0'))
-    tf.logging.log_every_n(tf.logging.INFO, 'group %s', 1, all_annotations_grp.get_group('006c8ac9b5e6906a'))
-    for counter, image_data in enumerate(all_annotations_grp):
+    counter = 0
+    for image_id, image_annotations in all_annotations_grp:
       tf.logging.log_every_n(tf.logging.INFO, 'Processed %d images...', 1000,
                              counter)
       
-      image_id, image_annotations = image_data
       tf.logging.log_every_n(tf.logging.INFO, 'Counter Id %d', 1, counter)
+      counter = counter + 1
       # In OID image file names are formed by appending ".jpg" to the image ID.
       image_path = os.path.join(FLAGS.input_images_directory, image_id + '.jpg')
       with tf.gfile.Open(image_path, "rb") as image_file:
