@@ -95,8 +95,10 @@ def main(_):
     output_tfrecords = tf_record_creation_util.open_sharded_output_tfrecords(
         tf_record_close_stack, FLAGS.output_tf_record_path_prefix,
         FLAGS.num_shards)
-
-    for counter, image_data in enumerate(all_annotations.groupby('ImageID')):
+    all_annotations_grp = all_annotations.groupby('ImageID')
+    tf.logging.log_every_n(tf.logging.INFO, 'group %s', 1, all_annotations_grp.get_group('0069e8be6d4f66f0'))
+    tf.logging.log_every_n(tf.logging.INFO, 'group %s', 1, all_annotations_grp.get_group('006c8ac9b5e6906a'))
+    for counter, image_data in enumerate(all_annotations_grp):
       tf.logging.log_every_n(tf.logging.INFO, 'Processed %d images...', 1000,
                              counter)
       
