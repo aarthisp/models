@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}/..",
+            "args": ["--input_box_annotations_csv=c:/Users/aarth/workspaces/tensorflow/projects/oid-object-detection-2019/data/annotations/challenge-2019-train-detection-bbox.csv", "--input_image_label_annotations_csv=C:/Users/aarth/workspaces/tensorflow/projects/oid-object-detection-2019/data/annotations/challenge-2019-train-detection-human-imagelabels.csv", "--input_images_directory=C:/Users/aarth/workspaces/tensorflow/projects/oid-object-detection-2019/data/images/train", "--input_label_map=C:/Users/aarth/workspaces/tensorflow/models/research/object_detection/data/oid_object_detection_challenge_500_label_map.pbtxt", "--output_tf_record_path_prefix=C:/Users/aarth/workspaces/tensorflow/projects/oid-object-detection-2019/data/annotations/train.tfrecord"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
