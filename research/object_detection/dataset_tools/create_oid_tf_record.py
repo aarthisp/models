@@ -88,7 +88,6 @@ def main(_):
   all_image_ids = pd.DataFrame({'ImageID': all_image_ids})
   all_annotations = pd.concat(
       [all_box_annotations, all_image_ids, all_label_annotations])
-  tf.logging.log_every_n(tf.logging.INFO, 'Problem file %s', 1, all_annotations.loc[all_annotations['ImageID'] == '006c8ac9b5e6906a'])
 
   tf.logging.log(tf.logging.INFO, 'Found %d images...', len(all_image_ids))
 
@@ -102,7 +101,7 @@ def main(_):
                              counter)
       
       image_id, image_annotations = image_data
-      tf.logging.log_every_n(tf.logging.INFO, 'Image Id %s', 1, image_id)
+      tf.logging.log_every_n(tf.logging.INFO, 'Counter Id %d', 1, counter)
       # In OID image file names are formed by appending ".jpg" to the image ID.
       image_path = os.path.join(FLAGS.input_images_directory, image_id + '.jpg')
       with tf.gfile.Open(image_path, "rb") as image_file:
