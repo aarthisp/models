@@ -101,7 +101,7 @@ def main(_):
                              counter)
       
       image_id, image_annotations = image_data
-      tf.logging.log_every_n(tf.logging.INFO, 'Image Id %s..', 1, image_id)
+      tf.logging.log_every_n(tf.logging.INFO, 'Image Id %s 79th image id %d', 1, image_id, all_image_ids[79])
       # In OID image file names are formed by appending ".jpg" to the image ID.
       image_path = os.path.join(FLAGS.input_images_directory, image_id + '.jpg')
       with tf.gfile.Open(image_path, "rb") as image_file:
